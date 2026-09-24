@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelime Avcısı — çevrimdışı</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    font-family: ui-monospace, monospace;
+    background: #101418; color: #d7dde3;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 16px; margin: 0; gap: 12px;
+  }
+  h1 { font-size: 18px; margin: 0; }
+  #board { display: grid; grid-template-rows: repeat(6, 44px); gap: 5px; }
+  #board .cell {
+    width: 44px; height: 44px; border: 2px solid #2c343c;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: bold; text-transform: uppercase;
+  }
+  .correct { background: #2e7d32; border-color: #2e7d32 !important; color: white; }
+  .present { background: #b98900; border-color: #b98900 !important; color: white; }
+  .absent { background: #333; border-color: #333 !important; color: #777; }
+  #keyboard { display: flex; flex-direction: column; gap: 4px; }
+  .kb-row { display: flex; gap: 4px; justify-content: center; }
+  .key {
+    min-width: 30px; height: 40px; padding: 0 6px;
+    border: 1px solid #2c343c; background: #1b2129; color: #d7dde3;
+    font: inherit; font-size: 13px; cursor: pointer;
+  }
+  .key.correct { background: #2e7d32; color: white; }
+  .key.present { background: #b98900; color: white; }
+  .key.absent { background: #333; color: #666; }
+  #status { min-height: 20px; }
+  #status.flash { color: #ffd166; }
+  .controls { display: flex; gap: 8px; }
+  .controls button {
+    font: inherit; background: #1b2129; color: #d7dde3;
+    border: 1px solid #2c343c; padding: 5px 10px; cursor: pointer;
+  }
+  #stats { font-size: 13px; color: #9aa5af; }
+</style>
+</head>
+<body>
+  <h1>Kelime Avcısı <small>(çevrimdışı)</small></h1>
+  <div id="status"></div>
+  <div id="board"></div>
+  <div id="keyboard"></div>
+  <div class="controls">
+    <button id="daily">günün oyunu</button>
+    <button id="new-game">yeni oyun</button>
+  </div>
+  <div id="stats"></div>
+<script>
+window.addEventListener("error", (e) => {
+  document.body.dataset.jserror = e.message || "unknown";
+});
+window.addEventListener("unhandledrejection", (e) => {
+  document.body.dataset.jsrejection = String(e.reason).slice(0, 200);
+});
+</script>
+
+<script type="module">
+/*__GAME__*/
+</script>
+</body>
+</html>
